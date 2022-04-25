@@ -18,6 +18,7 @@ void loop() {
   int packetSize = LoRa.parsePacket();
   if (packetSize) {
     // read packet
+    Serial.println();
     while (LoRa.available()) {
       Serial.print((char)LoRa.read());
     }
