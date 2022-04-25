@@ -1,0 +1,1 @@
+serial_device="" # your arduino LoRa serial path here /dev/xxx
