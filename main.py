@@ -1,4 +1,3 @@
-import asyncio
 import serial
 import config
 import paho.mqtt.client as mqtt
