@@ -1,10 +1,12 @@
 import json
 from flask import Flask, jsonify
+from flask_cors import CORS
 import database
 
 
 app = Flask(__name__)
 app.config["DEBUG"] = True
+CORS(app)
 
 def get_current_temperature():
     db = database.Database().get()
@@ -20,7 +22,9 @@ def get_temperature_history():
 
 @app.route('/current', methods=['GET'])
 def current_temp():
-    return jsonify(get_current_temperature())
+    response = jsonify(get_current_temperature())
+    response.access_control_allow_origin = '*'
+    return response
 
 @app.route('/history', methods=['GET'])
 def history():
